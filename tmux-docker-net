@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-tmux -c "tmux new-session -As  docker_net_tools ssh -t 10.0.20.107 docker exec -it 927e3fb61099001d3defdc8756be8c392dc0f068e4eaf4e2407b4e96142ec824 fish"
-# tmux split-window ssh -t 10.0.20.107 docker exec -it 927e3fb61099001d3defdc8756be8c392dc0f068e4eaf4e2407b4e96142ec824 fish
+tmux -c "tmux new-session -As  docker_net_tools ssh -t 10.0.20.107 docker run --rm -it dvmfa90/nettools fish"
