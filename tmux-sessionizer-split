@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+    dir_selected=$(find ~/vimwiki ~/.config ~/github /mnt/onedrive ~/scripts -mindepth 0 -maxdepth 4 -type d | fzf)
+    # selected=$(find ~/.config ~/github ~/OneDrive ~/scripts 1 -maxdepth 1 -type d | fzf)
+    # selected=$(find ~/work/builds ~/projects ~/ ~/work ~/personal ~/personal/yt -mindepth 1 -maxdepth 1 -type d | fzf)
+
+if [[ -z $dir_selected ]]; then
+    exit 0
+fi
+
+dir_selected_name=$(basename "$dir_selected" | tr . _)
+
+# file_selected=$(find $selected -type f | fzf)
+file_selected=$(rg --files --hidden  $dir_selected | fzf)
+file_selected_name=$(basename "$file_selected" | tr . _)
+
+
+if [[ -z $file_selected ]]; then
+  tmux split-window -c $dir_selected
+    exit 0
+else
+tmux -c "tmux new-session -As $file_selected_name nvim \"$file_selected\""
+fi

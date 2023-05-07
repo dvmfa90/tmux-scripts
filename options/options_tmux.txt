@@ -1,0 +1,11 @@
+1 - Search and open folder in new session
+
+2 - Search and open folder in split pane
+
+3 - SSH to a box in new session
+
+4 - SSH to a box in split pane
+
+5 - Search in wiki
+
+6 - test

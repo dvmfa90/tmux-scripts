@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+selected=$(find ~/vimwiki -mindepth 0 -maxdepth 4 -type f | fzf)
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+    tmux -c "tmux new-session -As scratch nvim \"$selected\""
+
+

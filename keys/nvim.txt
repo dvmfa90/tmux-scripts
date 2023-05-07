@@ -1,0 +1,62 @@
+======================================
+=                                   =
+=           NVIM KEYS               =
+=                                   =
+=====================================
+
+*************************************
+*            Telescope              *
+*************************************
+
+Search recent files -> <leader> + ?
+
+List buffers -> <leader> + space
+
+Fuzzy within current buffer aka search lines-> <leader> + /
+
+Search Files in current directory -> <leader> + sf
+
+Search Nvim help -> <leader> + sh
+
+Search word in current buffer -> <leader> + sw
+
+Search by grep -> <leader> + sg
+
+Search Diagnostics -> <leader> + sd
+
+*************************************
+*       Telescope Navigation        *
+*************************************
+
+Scroll down/up in the results -> CTRL + (j/k)
+
+Scroll down/up in the preview pane -> CTRL + (d/u)
+
+Open result in Vertical/horizontal -> CTRL + SHIFT + (v/h)
+
+*************************************
+*               LSP                 *
+*************************************
+
+[ NORMAL MODE  ]
+
+Go to Declaration -> gD
+
+Go to Definition -> gd
+
+Hover command explanation -> K
+
+Go to implementation -> gi
+
+rename variable you are on it -> <leader> + rn
+
+Show refences in horizontal buffer for the code you are -> gr
+
+Go to next/previous warning/error from diagnostics-> <leader> + (l/h)
+
+
+
+
+
+
+

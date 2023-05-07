@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+options=$(cat ~/scripts/tmux/options/options_tmux.txt | fzf)
+echo $options
+
+option=$(echo $options | awk '{print $1}')
+echo $option
+
+
+
+if [[ $option -lt 1 || $option -gt 6 ]]; then
+  echo wrong option
+else
+  if [[ $option -eq 5 ]]; then
+    # export OPTION=$option
+    ~/scripts/tmux/tmux-wiki
+  fi
+  if [[ $option -eq 3 ]]; then
+    # export OPTION=$option
+    ~/scripts/tmux/tmux-ssh-session
+  fi
+  if [[ $option -eq 4 ]]; then
+    # export OPTION=$option
+    ~/scripts/tmux/tmux-ssh-split
+  fi
+  if [[ $option -eq 1 ]]; then
+    # export OPTION=$option
+    ~/scripts/tmux/tmux-sessionizer-session
+  fi
+  if [[ $option -eq 2 ]]; then
+    # export OPTION=$option
+    ~/scripts/tmux/tmux-sessionizer-split
+  fi
+  if [[ $option -eq 6 ]]; then
+    # export OPTION=$option
+    ~/scripts/tmux/tmux-test
+  fi
+fi

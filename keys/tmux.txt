@@ -1,0 +1,41 @@
+======================================
+=                                   =
+=           TMUX KEYS               =
+=                                   =
+=====================================
+
+*************************************
+*            TMUX scripts           *
+*************************************
+
+Open net-tools docker -> CTRL + x + ALT + n
+
+Search folder and open in new session -> CTRL + x + f
+
+Search folder and open in split pane -> CTRL + x + F
+
+SSH to server in new session -> CTRL + x + ALT + s
+
+SSH to server in split pane -> CTRL + x + ALT + S
+
+Display Tmux Options -> CTRL + x + O
+
+Search wiki and open in pop up window -> CTRL + x + ALT + w
+
+Create and go to session for Home folder -> CTRL + x + H
+
+Create and go to session for Github folder -> CTRL + x + G
+
+Create and go to session for .Config folder -> CTRL + x + C
+
+Search for SSH server and select directory to open using nvim Lexpore -> CTRL + x + ALT + l
+
+*************************************
+*            TMUX basics            *
+*************************************
+
+Cycle TMUX layouts -> CTRL + x + space
+
+Increase or Decrease Pane left/right -> CTRL + x + (</>)
+
+Increase or Decrease Pane up/down -> CTRL + x + (]/[)
