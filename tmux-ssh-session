@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
-# if [[ $# -eq 1 ]]; then
-    # chose=$1
-# else
     chose=$(cat ~/.config/ssh/list.txt | fzf)
     echo $chose
     selected=$(echo $chose | awk '{print $1}')
     echo $selected
     name=$(echo $chose | awk '{print $3}')
     echo $name
-# fi
 selected_name=$(basename "$name" | tr . _)
 #
 # If not is select from FZF pop up, exit
 if [[ -z $selected ]]; then
     exit 0
 fi
-    # tmux new-session -ds $selected_name -c $selected -d "/bin/fish -c \"ssh -X -C $selected\"; /bin/fish -i"
-#
     tmux new-session -ds $selected_name -c $selected ssh -Y $selected
     tmux switch-client -t $selected_name

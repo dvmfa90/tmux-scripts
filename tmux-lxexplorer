@@ -3,16 +3,12 @@
     chose=$(cat ~/.config/ssh/list.txt | fzf)
     selected=$(echo $chose | awk '{print $1}')
     name=$(echo $chose | awk '{print $3}')
-# fi
 selected_name=$(basename "$name" | tr . _)
 #
 # If not is select from FZF pop up, exit
 if [[ -z $selected ]]; then
     exit 0
 fi
-    # tmux new-session -ds $selected_name -c $selected -d "/bin/fish -c \"ssh -X -C $selected\"; /bin/fish -i"
-#
-    # dir_selected=$(find ~/vimwiki ~/.config ~/github /mnt/onedrive ~/scripts -mindepth 0 -maxdepth 4 -type d | fzf)
     dir_selected=$(ssh $selected find ~/ -mindepth 0 -maxdepth 4 -type d | fzf)
 
 if [[ -z $dir_selected ]]; then
@@ -20,15 +16,5 @@ if [[ -z $dir_selected ]]; then
 fi
 
 
-# file_selected=$(ssh $selected find $dir_selected -type f | fzf)
-# file_selected_name=$(basename "$file_selected" | tr . _)
-# echo $selected
-# echo $dir_selected
-# echo $file_selected
-# echo $file_selected_name
-#
-#
 #
 tmux -c "tmux new-session -As $selected_name nvim -c \":Lexplore scp://$selected/$dir_selected/\""
-# tmux -c "tmux new-session -As $file_selected_name nvim -c \":Lexplore scp://$selected/$file_selected\""
-# tmux -c "tmux new-session -As $file_selected_name nvim -c \":Lexplore scp://$selected/$file_selected\""
