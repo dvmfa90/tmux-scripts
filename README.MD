@@ -135,10 +135,46 @@ So for example, if from the list I chose diogo@192.168.100.11 - gns3client, this
 when it starts the new tmux pane in splt mode and it does ssh -Y diogo@192.168.100.11.
 
 
-
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/75fb50d3-6c7f-424e-8b6d-782b20d52868
 
+## tmux-wiki:
 
+This script, looks into files in my ~/vimwiki folder, but can be used to anything if you change it.
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + ALT + w, this runs tmux-wiki script.
+This will then open a pop up with fzf listing all files within ~/vimwiki folder.
+I can than search for keyworks and when I press enter on the one I want open, it opens a pop up with nvim with the
+select file open.
+
+## tmux-docker-net:
+
+This is a simple script, that basically opens a pop up in tmux inside a docker container. In my case it opens the
+container using a jumpbox as I don't have docker client installed on my gentoo. If you change the code of the script you
+can basically have the same behaviour but opening a container within your system.
+
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + ALT + n, this runs tmux-docker-net script.
+This will open a pop up where I am on the docker container shell.
+This docker container is a public one I created dvmfa90/net-tools.
+
+## tmux-lxexplorer:
+
+This script relies on nvim. This script will basically open a pop up like the tmux-ssh-split/session scripts, listing
+the servers I have available through ssh. Once I chose the server, it opens fzf on remote user home folder where I can
+search for folders and sub folders and ocne I press enter, it open nvim in my ssystem with lexplore in the remote chosen
+folder.
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + ALT + l, this runs tmux-lxexplorer script.
+This will open a pop up where I chose form a text file list a remote server.
+Once chosen, it uses fzf and lists folders and subfolders of the remote host where I can serach for specific folders
+Once I chose a folder open nvim with lexplore on the remote host selected folder, fomr here I can then browse and open a
+file and edit it.
 
 * TO DO:
 
