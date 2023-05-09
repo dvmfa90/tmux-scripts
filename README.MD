@@ -57,7 +57,10 @@ No matter what option I chose, this will open tmux-keys script, if I chose tmux 
 chose nvim it opens nvim.txt. This open the files using fzf, which means you can search on it for strings.
 
 
-https://github.com/dvmfa90/scripts/assets/51400932/e69690df-2939-4dfe-a6c1-175a5aaf929f
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/68ac2eed-1456-4f0f-a24b-17b3d11e81be
+
+
 
 ## tmux-sipcalc:
 
@@ -69,7 +72,11 @@ So when I am in my terminal, if I press my tmux prefix + ALT + c, a pop up shows
 Once you type in the subnet and press enter, it will then run sipcalc + subnet entered and show the result. You then
 need to press q to exit.
 
-https://github.com/dvmfa90/scripts/assets/51400932/abff2ac3-c9f6-4a0c-81ae-20f3b8cbe576
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/45b9fd43-dd89-41d5-97b9-251ed5277915
+
+
 
 ## tmux-ssh-session:
 
@@ -96,7 +103,11 @@ using awk to a variable. It then creates a new tmux session where it ssh to the 
 So for example, if from the list I chose diogo@192.168.100.11 - gns3client, this will save diogo@192.168.100.11, then
 when it starts the new tmux session it does ssh -Y diogo@192.168.100.11.
 
-https://github.com/dvmfa90/scripts/assets/51400932/fb416716-931f-49f3-bbf2-36167fb98b8d
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/6e5ac1ca-e756-4bc4-ad3d-9921a144b40b
+
+
 
 ## tmux-ssh-split:
 
@@ -123,7 +134,11 @@ saved variable.
 So for example, if from the list I chose diogo@192.168.100.11 - gns3client, this will save diogo@192.168.100.11, then
 when it starts the new tmux pane in splt mode and it does ssh -Y diogo@192.168.100.11.
 
-https://github.com/dvmfa90/scripts/assets/51400932/097bac03-7812-47f4-8a67-64416a70dc0a
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/75fb50d3-6c7f-424e-8b6d-782b20d52868
+
+
 
 * TO DO:
 
