@@ -6,7 +6,7 @@ option=$(echo $options | awk '{print $1}')
 
 
 
-if [[ $option -lt 1 || $option -gt 3 ]]; then
+if [[ $option -lt 1 || $option -gt 2 ]]; then
   echo wrong option
 else
   if [[ $option -eq 1 ]]; then
@@ -14,9 +14,6 @@ else
   fi
   if [[ $option -eq 2 ]]; then
     cat ~/scripts/tmux/keys/nvim.txt | fzf
-  fi
-  if [[ $option -eq 3 ]]; then
-    ~/scripts/tmux/tmux-ssh-split
   fi
 fi
 

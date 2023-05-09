@@ -4,6 +4,9 @@ These scripts have been created by myself (using as reference tmux-sessionizer b
 
 These scripts help me a lot in my tmux workflow.
 
+** My system
+
+   - OS: Gentoo
 ** TO DO:
 
    - Upload video showing workflow
