@@ -58,7 +58,7 @@ chose nvim it opens nvim.txt. This open the files using fzf, which means you can
 
 
 
-https://github.com/dvmfa90/tmux-scripts/assets/51400932/68ac2eed-1456-4f0f-a24b-17b3d11e81be
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/ddef6389-d9c4-41da-bec7-94e64a662fa1
 
 
 
@@ -73,9 +73,7 @@ Once you type in the subnet and press enter, it will then run sipcalc + subnet e
 need to press q to exit.
 
 
-
-https://github.com/dvmfa90/tmux-scripts/assets/51400932/45b9fd43-dd89-41d5-97b9-251ed5277915
-
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/1bd2eab5-7f4f-46c6-a9f7-341c49b8a7b9
 
 
 ## tmux-ssh-session:
@@ -105,7 +103,7 @@ when it starts the new tmux session it does ssh -Y diogo@192.168.100.11.
 
 
 
-https://github.com/dvmfa90/tmux-scripts/assets/51400932/6e5ac1ca-e756-4bc4-ad3d-9921a144b40b
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/67300db7-2161-4bab-82b0-5cc10f628d5b
 
 
 
@@ -135,7 +133,8 @@ So for example, if from the list I chose diogo@192.168.100.11 - gns3client, this
 when it starts the new tmux pane in splt mode and it does ssh -Y diogo@192.168.100.11.
 
 
-https://github.com/dvmfa90/tmux-scripts/assets/51400932/75fb50d3-6c7f-424e-8b6d-782b20d52868
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/10a72b96-e350-4464-a64a-b108db659417
+
 
 ## tmux-wiki:
 
@@ -147,6 +146,12 @@ So when I am in my terminal, if I press my tmux prefix + ALT + w, this runs tmux
 This will then open a pop up with fzf listing all files within ~/vimwiki folder.
 I can than search for keyworks and when I press enter on the one I want open, it opens a pop up with nvim with the
 select file open.
+
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/c0ff49bb-2f3d-4618-a671-ee3d7c4e4189
+
+
 
 ## tmux-docker-net:
 
@@ -160,6 +165,12 @@ can basically have the same behaviour but opening a container within your system
 So when I am in my terminal, if I press my tmux prefix + ALT + n, this runs tmux-docker-net script.
 This will open a pop up where I am on the docker container shell.
 This docker container is a public one I created dvmfa90/net-tools.
+
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/9f59ad1f-8596-4c84-a9ee-6bca7fa72ad9
+
+
 
 ## tmux-lxexplorer:
 
@@ -175,6 +186,10 @@ This will open a pop up where I chose form a text file list a remote server.
 Once chosen, it uses fzf and lists folders and subfolders of the remote host where I can serach for specific folders
 Once I chose a folder open nvim with lexplore on the remote host selected folder, fomr here I can then browse and open a
 file and edit it.
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/665b28d2-7db9-4104-860a-763dff02bb5e
+
 
 * TO DO:
 
