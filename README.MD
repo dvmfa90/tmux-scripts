@@ -190,8 +190,42 @@ file and edit it.
 
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/665b28d2-7db9-4104-860a-763dff02bb5e
 
+## tmux-sessionizer-session:
+
+This script opens a pop up, where it lists subfolders within a set of folders pre configured in the script. Once you
+chose a folder, it will than show all files in the folder you chose. If at this stage you press CTRL+C, a new tmux
+session will get created where you will be in the folder you previously selected. If you actually chose a file, it will
+open the file in neovim in a pop up.
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + f , this runs tmux-sessionizer-session script.
+A pop up will list subfolders within a set of folders.
+Once a folder is chosen, it lists all files within the selected folder.
+
+1. You chose a file: This will open the file using nvim in a pop up.
+2. You did not chose file, it will create a new session with the folder you selected.
+
+The one video will show both exmaples.
+
+## tmux-sessionizer-split:
+
+This script opens a pop up, where it lists subfolders within a set of folders pre configured in the script. Once you
+chose a folder, it will than show all files in the folder you chose. If at this stage you press CTRL+C, a new split pane
+will open in your existing tmux window, where you will be in the folder you previously selected. If you actually chose a file, it will
+open the file in neovim in a pop up.
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + F , this runs tmux-sessionizer-split script.
+A pop up will list subfolders within a set of folders.
+Once a folder is chosen, it lists all files within the selected folder.
+
+1. You chose a file: This will open the file using nvim in a pop up.
+2. You did not chose file, it will create a pane in split mode in your existing tmux window with the folder you selected.
+
+The one video will show both exmaples.
 
 * TO DO:
 
-   - Upload video showing workflow
    - Upload instruction
