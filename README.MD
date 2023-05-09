@@ -208,6 +208,12 @@ Once a folder is chosen, it lists all files within the selected folder.
 
 The one video will show both exmaples.
 
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/eac466b5-5ac3-45a7-b37c-a151eebf07ce
+
+
+
 ## tmux-sessionizer-split:
 
 This script opens a pop up, where it lists subfolders within a set of folders pre configured in the script. Once you
@@ -225,6 +231,12 @@ Once a folder is chosen, it lists all files within the selected folder.
 2. You did not chose file, it will create a pane in split mode in your existing tmux window with the folder you selected.
 
 The one video will show both exmaples.
+
+
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/831ca5d8-2cb9-4afe-b7de-39d0e2196c05
+
+
 
 * TO DO:
 
