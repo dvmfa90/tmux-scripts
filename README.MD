@@ -23,30 +23,55 @@ I AM NOT A PROGRAMMER, I am self tought in programming so most likely you will f
 
 I use a lot terminal based applications, so I spend a lot of time in my terminal and these scripts help me a lot with my
 workflow. One of the main reason I use TMUX, is that even though I have 3 monitors in my setup, I like the ability of
-   having all in one terminal window and be able to organise it and jump into folders and projects quick.
+having all in one terminal window and be able to organise it and jump into folders and projects quick.
 
 # Scripts
 
 
 |  Name               | Purpose                                                       |
 |--------------------------|--------------------------------------------------------------|
-| tmux-keys | Opens pop up menu that allows you to chose nvim or tmux so you can see keymaps. |
-| tmux-sipcalc | Pop up where you type a subnet and it uses sipcalc to make subnet calculator |
-| tmux-wiki | Fuzzy finds files in vimwiki folder so you can easily search through them and open in nvim |
-| tmux-ssh-session | Opens a list of ssh servers in a text file, once you chose one it creates a new session where it ssh to the chosen server |
-| tmux-ssh-split | Same as above but it rather than opening a new session it opens in existing session in a split pane |
-| tmux-lxexplorer | Goes through the list of ssh servers, once you chose one, it lists folders/subfolders in remote user home directory, once you chose one, it open vim with lexplorer in the remote server and directory you chose |
-| tmux-sessionizer-session | This particular one is opens a pop up with fzf where you can search for subfolders within folders set in the script, once you chose one it than lists the files within that folder, if you ctrl+c on that window, it creates a new session in the subfolder you chose, if you chose a file, it opens in a pop up nvim with the file |
-| tmux-sessionizer-split | It does the same as the above one, but if you ctrl+c on the file screen, rather than opening the subfolder you chose ina  new session it opens in the exsiting session in a split pane, if you chose a file it does the same as the below and open in a pop up nvim witht he file you chose |
-| tmux-docker-net | This one basically creates a docker container in a server I have, with --rm argument so it removes after I am done. This opens dvmfa90/net-tools docker container which I use to run some networking tools. |
+| tmux-keys | Shows key bindings for either nvim or tmux from a user populated list |
+| tmux-sipcalc | CLI subnet calculator |
+| tmux-wiki | Easy way to search through wiki files and open them in neovim |
+| tmux-ssh-session | SSH to a server from a user populated list in a new tmux session |
+| tmux-ssh-split |  SSH to a server from a user populated list in existing tmux window in split pane mode |
+| tmux-lxexplorer | opens nvim with Lexplore in a remote server user selected folder |
+| tmux-sessionizer-session | Creates new tmux session on a folder selected by the user |
+| tmux-sessionizer-split | Creates a new split pane in existing tmux window on a folder selected by the user |
+| tmux-docker-net | Opens dvmfa90/net-tools docker container |
 
-# Gifs + Instructions of each script
+# Important notes
+
+I am always in tmux, when I start my terminal, I have some code in my fish config where it checks if there is an existing tmux
+session and if doesn't, it starts a tmux session called "diogo". So everytime I open a terminal I will be already
+attached to a tmux session.
+
+# Overall requirements for these scripts to work:
+
+- Enviroment variable called TMUXSCRIPTSDIR pointing to the path where these scripts will be located. EX: export TMUXSCRIPTSDIR=~/github/tmux-scripts
+- Enviroment variable called SSHLISTDIR pointing to the path where the SSH servers list will be located. EX: export SSHLISTDIR=~/.config/ssh
+- Enviroment variable called TMUXOPTIONSDIR pointing to the path where the folder options will be located. EX: export TMUXOPTIONSDIR=~/github/tmux-scripts/options
+- Enviroment variable called TMUXKEYSDIR pointing to the path where the folder keys will be located. EX: export TMUXKEYSDIR=~/github/tmux-scripts/keys
+- sipcalc installed for the sipcalc script
+- FZF installed
+- RIPGREP installed
+
+# Instructions of each script + Demo video
 
 ## tmux-keys:
 
-Inside the folder keys, there are 2 files, one called nvim.txt and another one called tmux.txt.
+### Requirements:
 
-Each of the text files have some key bindings and explanation I added as sometimes I might forget some of them.
+- Two text files, one for tmux key bindings and another one with nvim key bindings. For these scripts to work they need
+  to be called tmux.txt and nvim.txt, but of course you can change the code in the scripts if you want to use different
+  names.
+
+- Enviroment variable called TMUXKEYSDIR with the folder path that contains the two text files, example: export
+  TMUXKEYSDIR=~/github/tmux-scripts/keys
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r K run-shell "tmux display-popup -w 40% -h 90% -E "$TMUXSCRIPTSDIR/tmux-keys""
 
 ### Usage:
 
@@ -64,7 +89,14 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/ddef6389-d9c4-41da-bec7-
 
 ## tmux-sipcalc:
 
-This requires sipcalc to be installed in your pc.
+### Requirements:
+
+- sipcalc installed
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-c display-popup -w 70% -h 70% -E "tmux new-session -A -s test ~/scripts/tmux/tmux-sipcalc"
+
 
 ### Usage:
 
@@ -78,7 +110,17 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/1bd2eab5-7f4f-46c6-a9f7-
 
 ## tmux-ssh-session:
 
-This relies on a text file with ssh servers on it. Below an example of the format I have on my ssh text file:
+### Requirements:
+
+
+- Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
+- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-s run-shell "tmux display-popup -w 70% -h 40% -E "$TMUXSCRIPTSDIR/tmux-ssh-session""
+
+### SSH text file list example:
 
 ==== HOME ====
 
@@ -90,8 +132,6 @@ diogo@192.168.100.12 - ubuntu-dev
 
 diogo@192.168.100.13 - ubuntu-secure
 
-
-
 ### Usage:
 
 So when I am in my terminal, if I press my tmux prefix + ALT + s, this runs tmux-ssh-session script.
@@ -101,15 +141,22 @@ using awk to a variable. It then creates a new tmux session where it ssh to the 
 So for example, if from the list I chose diogo@192.168.100.11 - gns3client, this will save diogo@192.168.100.11, then
 when it starts the new tmux session it does ssh -Y diogo@192.168.100.11.
 
-
-
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/67300db7-2161-4bab-82b0-5cc10f628d5b
-
 
 
 ## tmux-ssh-split:
 
-This relies on a text file with ssh servers on it. Below an example of the format I have on my ssh text file:
+### Requirements:
+
+
+- Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
+- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-S run-shell "tmux display-popup -w 70% -h 40% -E "$TMUXSCRIPTSDIR/tmux-ssh-split""
+
+### SSH text file list example:
 
 ==== HOME ====
 
@@ -138,7 +185,10 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/10a72b96-e350-4464-a64a-
 
 ## tmux-wiki:
 
-This script, looks into files in my ~/vimwiki folder, but can be used to anything if you change it.
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-w run-shell "tmux display-popup -w 70% -h 70% -E "$TMUXSCRIPTSDIR/tmux-wiki""
 
 ### Usage:
 
@@ -147,18 +197,14 @@ This will then open a pop up with fzf listing all files within ~/vimwiki folder.
 I can than search for keyworks and when I press enter on the one I want open, it opens a pop up with nvim with the
 select file open.
 
-
-
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/c0ff49bb-2f3d-4618-a671-ee3d7c4e4189
-
-
 
 ## tmux-docker-net:
 
-This is a simple script, that basically opens a pop up in tmux inside a docker container. In my case it opens the
-container using a jumpbox as I don't have docker client installed on my gentoo. If you change the code of the script you
-can basically have the same behaviour but opening a container within your system.
 
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-n run-shell "tmux display-popup -w 80% -h 80% -E "$TMUXSCRIPTSDIR/tmux-docker-net""
 
 ### Usage:
 
@@ -166,18 +212,22 @@ So when I am in my terminal, if I press my tmux prefix + ALT + n, this runs tmux
 This will open a pop up where I am on the docker container shell.
 This docker container is a public one I created dvmfa90/net-tools.
 
-
-
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/9f59ad1f-8596-4c84-a9ee-6bca7fa72ad9
-
 
 
 ## tmux-lxexplorer:
 
-This script relies on nvim. This script will basically open a pop up like the tmux-ssh-split/session scripts, listing
-the servers I have available through ssh. Once I chose the server, it opens fzf on remote user home folder where I can
-search for folders and sub folders and ocne I press enter, it open nvim in my ssystem with lexplore in the remote chosen
-folder.
+### Requirements:
+
+- nvim with lexplore
+- Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
+- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
+
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-l run-shell "tmux display-popup -w 70% -h 70% -E "$TMUXSCRIPTSDIR/tmux-lxexplorer""
+
 
 ### Usage:
 
@@ -192,10 +242,9 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/665b28d2-7db9-4104-860a-
 
 ## tmux-sessionizer-session:
 
-This script opens a pop up, where it lists subfolders within a set of folders pre configured in the script. Once you
-chose a folder, it will than show all files in the folder you chose. If at this stage you press CTRL+C, a new tmux
-session will get created where you will be in the folder you previously selected. If you actually chose a file, it will
-open the file in neovim in a pop up.
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r f run-shell "tmux display-popup -w 70% -h 80% -E "$TMUXSCRIPTSDIR/tmux-sessionizer-session""
 
 ### Usage:
 
@@ -216,10 +265,9 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/eac466b5-5ac3-45a7-b37c-
 
 ## tmux-sessionizer-split:
 
-This script opens a pop up, where it lists subfolders within a set of folders pre configured in the script. Once you
-chose a folder, it will than show all files in the folder you chose. If at this stage you press CTRL+C, a new split pane
-will open in your existing tmux window, where you will be in the folder you previously selected. If you actually chose a file, it will
-open the file in neovim in a pop up.
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r F run-shell "tmux display-popup -w 70% -h 80% -E "$TMUXSCRIPTSDIR/tmux-sessionizer-split""
 
 ### Usage:
 
@@ -236,8 +284,6 @@ The one video will show both exmaples.
 
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/831ca5d8-2cb9-4afe-b7de-39d0e2196c05
 
+# TO DO:
 
-
-* TO DO:
-
-   - Upload instruction
+- Create instalation script

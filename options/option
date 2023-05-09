@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-options=$(cat ~/scripts/tmux/options/options_tmux.txt | fzf)
+options=$(cat $TMUXOPTIONS/options_tmux.txt | fzf)
 echo $options
 
 option=$(echo $options | awk '{print $1}')
