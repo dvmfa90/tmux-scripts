@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+
+echo ""
+read -p "Type subnet to calc: " subnet
+sipcalc $subnet
+echo "Press 'q' to exit"
+echo ""
+while : ; do
+read -n 1 k <&1
+if [[ $k = q ]] ; then
+printf "\nQuitting from the program\n"
+break
+else
+echo "Press 'q' to exit"
+fi
+done
+
+

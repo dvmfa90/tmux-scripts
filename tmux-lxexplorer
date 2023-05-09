@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
-    chose=$(cat ~/.config/ssh/list.txt | fzf)
-    selected=$(echo $chose | awk '{print $1}')
-    name=$(echo $chose | awk '{print $3}')
+chose=$(cat ~/.config/ssh/list.txt | fzf)
+selected=$(echo $chose | awk '{print $1}')
+name=$(echo $chose | awk '{print $3}')
 selected_name=$(basename "$name" | tr . _)
 #
-# If not is select from FZF pop up, exit
+# If nothing is selected from FZF pop up, exit
 if [[ -z $selected ]]; then
     exit 0
 fi
-    dir_selected=$(ssh $selected find ~/ -mindepth 0 -maxdepth 4 -type d | fzf)
 
+
+dir_selected=$(ssh $selected find ~/ -mindepth 0 -maxdepth 4 -type d | fzf)
+
+# If nothing is selected from FZF pop up, exit
 if [[ -z $dir_selected ]]; then
     exit 0
 fi
 
-
-#
 tmux -c "tmux new-session -As $selected_name nvim -c \":Lexplore scp://$selected/$dir_selected/\""

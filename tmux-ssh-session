@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-    chose=$(cat ~/.config/ssh/list.txt | fzf)
-    echo $chose
-    selected=$(echo $chose | awk '{print $1}')
-    echo $selected
-    name=$(echo $chose | awk '{print $3}')
-    echo $name
+
+chose=$(cat ~/.config/ssh/list.txt | fzf)
+selected=$(echo $chose | awk '{print $1}')
+name=$(echo $chose | awk '{print $3}')
 selected_name=$(basename "$name" | tr . _)
 #
-# If not is select from FZF pop up, exit
+# If nothing is select from FZF pop up, exit
 if [[ -z $selected ]]; then
     exit 0
 fi

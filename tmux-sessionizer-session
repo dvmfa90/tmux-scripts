@@ -12,7 +12,6 @@ if [[ -z $dir_selected ]]; then
 fi
 
 dir_selected_name=$(basename "$dir_selected" | tr . _)
-
 file_selected=$(rg --files --hidden  $dir_selected | fzf)
 file_selected_name=$(basename "$file_selected" | tr . _)
 
