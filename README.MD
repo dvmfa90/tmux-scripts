@@ -15,9 +15,7 @@ I AM NOT A PROGRAMMER, I am self tought in programming so most likely you will f
    - OS: Gentoo
    - Window Manager: I3-WM
    - Terminal: ST
-   - Shell: Fish shell, I know this might be a shock, but fish provides with a smart auto completion based on the actual
-     path I am that others don't. When I am for example on my /home/ directory I like that when I do cd, the option
-     available are actually folders in that /home/ directory.
+   - Shell: zsh
 
 # Purpose of these scripts
 
@@ -42,7 +40,7 @@ having all in one terminal window and be able to organise it and jump into folde
 
 # Important notes
 
-I am always in tmux, when I start my terminal, I have some code in my fish config where it checks if there is an existing tmux
+I am always in tmux, when I start my terminal, I have some code in my zsh config where it checks if there is an existing tmux
 session and if doesn't, it starts a tmux session called "diogo". So everytime I open a terminal I will be already
 attached to a tmux session.
 
