@@ -285,3 +285,4 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/831ca5d8-2cb9-4afe-b7de-
 # TO DO:
 
 - Create instalation script
+- Working on version 2 of the scripts
