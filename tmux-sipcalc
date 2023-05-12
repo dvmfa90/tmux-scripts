@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
+while :
+do
+echo "Press 'q' to exit"
+read -p "Type subnet to calc: " answer
+  case $answer in
+    q)
+      echo "quiting"
+      exit 0
+      ;;
 
-echo ""
-read -p "Type subnet to calc: " subnet
-sipcalc $subnet
-echo "Press 'q' to exit"
-echo ""
-while : ; do
-read -n 1 k <&1
-if [[ $k = q ]] ; then
-printf "\nQuitting from the program\n"
-break
-else
-echo "Press 'q' to exit"
-fi
+    *)
+    sipcalc $answer
+      ;;
+  esac
+
 done
-
 
