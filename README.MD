@@ -99,8 +99,10 @@ bind -r M-c display-popup -w 70% -h 70% -E "tmux new-session -A -s test ~/script
 ### Usage:
 
 So when I am in my terminal, if I press my tmux prefix + ALT + c, a pop up shows up asking for subnet.
-Once you type in the subnet and press enter, it will then run sipcalc + subnet entered and show the result. You then
-need to press q to exit.
+Once you type in the subnet and press enter, it will then run sipcalc + subnet entered and show the result. This is now
+been added to a loop, so it asks again for user input to calculate a new subnet, if you press q or ctrl+c it will than
+exit the script.
+This means you can now "call" the script once, and calculate multiple subnets and exist when you done.
 
 
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/1bd2eab5-7f4f-46c6-a9f7-341c49b8a7b9
