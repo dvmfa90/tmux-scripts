@@ -1,5 +1,3 @@
-Working in progress.
-
 These scripts have been created by myself (using as reference tmux-sessionizer by the The Primeagen).
 
 These scripts help me a lot in my tmux workflow.
@@ -16,6 +14,10 @@ I AM NOT A PROGRAMMER, I am self tought in programming so most likely you will f
    - Window Manager: I3-WM
    - Terminal: ST
    - Shell: zsh
+
+# V2 Branch
+
+I have created a V2 branch, which has some changes to some of the scripts.
 
 # Purpose of these scripts
 
