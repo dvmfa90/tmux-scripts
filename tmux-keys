@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-options=$(cat $TMUXOPTIONSDIR/options_keys.txt | fzf)
+options=$(cat $TMUXSCRIPTSDIR/options/options_keys.txt | fzf)
 
 option=$(echo $options | awk '{print $1}')
 
