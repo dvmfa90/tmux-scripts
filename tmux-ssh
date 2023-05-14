@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+
+chose=$(cat $SSHLISTDIR/list.txt| fzf)
+selected=$(echo $chose | awk '{print $1}')
+name=$(echo $chose | awk '{print $3}')
+selected_name=$(basename "$name" | tr . _)
+#
+# If nothing is select from FZF pop up, exit
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+
+while :
+do
+echo "Press 'q' to exit"
+read -p "SSH to server in split or new session?  [sp/s]  " answer2
+
+    case $answer2 in
+      sp)
+        tmux split-window ssh -Y $selected
+        exit 0
+        ;;
+
+      s)
+        tmux new-session -ds $selected_name -c $selected ssh -Y $selected
+        tmux switch-client -t $selected_name
+        exit 0
+        ;;
+      q)
+        echo "quiting"
+        exit 0
+        ;;
+
+      *)
+        echo "quiting"
+        exit 0
+        ;;
+  esac
+
+done
+
+
