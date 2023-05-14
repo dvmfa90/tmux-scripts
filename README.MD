@@ -48,9 +48,6 @@ attached to a tmux session.
 # Overall requirements for these scripts to work:
 
 - Enviroment variable called TMUXSCRIPTSDIR pointing to the path where these scripts will be located. EX: export TMUXSCRIPTSDIR=~/github/tmux-scripts
-- Enviroment variable called SSHLISTDIR pointing to the path where the SSH servers list will be located. EX: export SSHLISTDIR=~/.config/ssh
-- Enviroment variable called TMUXOPTIONSDIR pointing to the path where the folder options will be located. EX: export TMUXOPTIONSDIR=~/github/tmux-scripts/options
-- Enviroment variable called TMUXKEYSDIR pointing to the path where the folder keys will be located. EX: export TMUXKEYSDIR=~/github/tmux-scripts/keys
 - sipcalc installed for the sipcalc script
 - FZF installed
 - RIPGREP installed
@@ -222,7 +219,6 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/9f59ad1f-8596-4c84-a9ee-
 
 - nvim with lexplore
 - Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
-- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
 
 
 ### Tmux Keybinding example(to be added to your .tmux.conf):
