@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dir_selected=$(find ~/vimwiki ~/.config ~/github /mnt/onedrive ~/scripts -mindepth 0 -maxdepth 4 -type d | fzf)
+dir_selected=$(find $SESSIONIZERDIR -mindepth 0 -maxdepth 4 -type d | fzf)
 
 if [[ -z $dir_selected ]]; then
     exit 0
