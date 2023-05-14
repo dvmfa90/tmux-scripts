@@ -62,8 +62,6 @@ attached to a tmux session.
   to be called tmux.txt and nvim.txt, but of course you can change the code in the scripts if you want to use different
   names.
 
-- Enviroment variable called TMUXKEYSDIR with the folder path that contains the two text files, example: export
-  TMUXKEYSDIR=~/github/tmux-scripts/keys
 
 ### Tmux Keybinding example(to be added to your .tmux.conf):
 
@@ -112,7 +110,6 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/1bd2eab5-7f4f-46c6-a9f7-
 
 
 - Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
-- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
 
 ### Tmux Keybinding example(to be added to your .tmux.conf):
 
@@ -148,7 +145,6 @@ https://github.com/dvmfa90/tmux-scripts/assets/51400932/67300db7-2161-4bab-82b0-
 
 
 - Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
-- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
 
 ### Tmux Keybinding example(to be added to your .tmux.conf):
 

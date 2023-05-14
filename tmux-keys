@@ -10,10 +10,10 @@ if [[ $option -lt 1 || $option -gt 2 ]]; then
   echo wrong option
 else
   if [[ $option -eq 1 ]]; then
-    cat $TMUXKEYSDIR/tmux.txt | fzf
+    cat $TMUXSCRIPTSDIR/keys/tmux.txt | fzf
   fi
   if [[ $option -eq 2 ]]; then
-    cat $TMUXKEYSDIR/nvim.txt | fzf
+    cat $TMUXSCRIPTSDIR/keys/nvim.txt | fzf
   fi
   if [[ -z $option ]]; then
       exit 0
