@@ -4,7 +4,7 @@
 if [[ $# -eq 1 ]]; then
     dir_selected=$1
 else
-    dir_selected=$(find $SESSIONIZERDIR -mindepth 0 -maxdepth 4 -type d | fzf)
+    dir_selected=$(find ~/vimwiki ~/.config ~/github /mnt/onedrive ~/scripts -mindepth 0 -maxdepth 4 -type d | fzf)
 fi
 
 if [[ -z $dir_selected ]]; then
