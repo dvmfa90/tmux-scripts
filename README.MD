@@ -15,9 +15,6 @@ I AM NOT A PROGRAMMER, I am self tought in programming so most likely you will f
    - Terminal: ST
    - Shell: zsh
 
-# V2 Branch
-
-I have created a V2 branch, which has some changes to some of the scripts.
 
 # Purpose of these scripts
 
@@ -39,6 +36,8 @@ having all in one terminal window and be able to organise it and jump into folde
 | tmux-sessionizer-session | Creates new tmux session on a folder selected by the user |
 | tmux-sessionizer-split | Creates a new split pane in existing tmux window on a folder selected by the user |
 | tmux-docker-net | Opens dvmfa90/net-tools docker container |
+| tmux-ssh | SSH to a server from a user populated list in a new tmux session or split pane in existing window |
+| tmux-sessionizer | Open folder selected by the user on a new tmux session or split pane in existing window, it also gives the option to search for files in the selected folder and open a pop up with nvim editing the selected file |
 
 # Important notes
 
@@ -286,7 +285,63 @@ The one video will show both exmaples.
 
 https://github.com/dvmfa90/tmux-scripts/assets/51400932/831ca5d8-2cb9-4afe-b7de-39d0e2196c05
 
+
+## tmux-ssh:
+
+### Requirements:
+
+
+- Text file, with list of servers you usually log on to via ssh. This works priv/pub key authentication for the servers
+- Enviroment variable called SSHLISTDIR with the folder path that contains the list of servers, example: export SSHLISTDIR=~/.config/ssh
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r M-s run-shell "tmux display-popup -w 70% -h 40% -E "$TMUXSCRIPTSDIR/tmux-ssh""
+
+### SSH text file list example:
+
+==== HOME ====
+
+diogo@192.168.100.11 - gns3client
+
+diogo@192.168.100.10 - gns3server
+
+diogo@192.168.100.12 - ubuntu-dev
+
+diogo@192.168.100.13 - ubuntu-secure
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + ALT + s, this runs tmux-ssh script.
+The script cats the ssh list text file with fzf, and once you chose the server, it saves the first bit of the line,
+using awk to a variable. It then asks if you want to ssh to the selected server in a new tmux session or in a split pane
+in existing window.
+
+So for example, if from the list I chose diogo@192.168.100.11 - gns3client, this will save diogo@192.168.100.11, it will
+then ask if you want to ssh to the selected server in a new tmux session or in a split pane, and according to the chosen
+opion it does ssh -Y diogo@192.168.100.11.
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/12425bb8-8580-4d45-974a-c759d10373d3
+
+## tmux-sessionizer:
+
+### Tmux Keybinding example(to be added to your .tmux.conf):
+
+bind -r f run-shell "tmux display-popup -w 70% -h 80% -E "$TMUXSCRIPTSDIR/tmux-sessionizer""
+
+### Usage:
+
+So when I am in my terminal, if I press my tmux prefix + f , this runs tmux-sessionizer script.
+A pop up will list subfolders within a set of folders.
+Once a folder is chosen, it will ask if you want to search for files in the selected folder
+
+If you press y, it will open fzf in the folder and list a;; the files in that folder, once you chose a file it will open
+a pop up with nvim $selectedfile
+
+If you press n, it will ask if you want to open the selected folder in a new session or in a split pane in existing
+window.
+
+https://github.com/dvmfa90/tmux-scripts/assets/51400932/e80d1e60-eb47-4077-b60d-48e42c396895
 # TO DO:
 
 - Create instalation script
-- Working on version 2 of the scripts
