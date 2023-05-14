@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-chose=$(cat $SSHLISTDIR/list.txt | fzf)
+chose=$(cat $TMUXSCRIPTSDIR/ssh/list.txt| fzf)
 selected=$(echo $chose | awk '{print $1}')
 name=$(echo $chose | awk '{print $3}')
 selected_name=$(basename "$name" | tr . _)
