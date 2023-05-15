@@ -227,7 +227,7 @@ bind -r M-l run-shell "tmux display-popup -w 70% -h 70% -E "$TMUXSCRIPTSDIR/tmux
 So when I am in my terminal, if I press my tmux prefix + ALT + l, this runs tmux-lxexplorer script.
 This will open a pop up where I chose form a text file list a remote server.
 Once chosen, it uses fzf and lists folders and subfolders of the remote host where I can serach for specific folders
-Once I chose a folder open nvim with lexplore on the remote host selected folder, fomr here I can then browse and open a
+Once I chose a folder it will ask if you want to open the folder in a new session, in split or pop up and will open nvim with lexplore on the remote host selected folder, from here I can then browse and open a
 file and edit it.
 
 
