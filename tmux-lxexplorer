@@ -18,4 +18,40 @@ if [[ -z $dir_selected ]]; then
     exit 0
 fi
 
-tmux -c "tmux new-session -As $selected_name nvim -c \":Lexplore scp://$selected/$dir_selected/\""
+
+
+while :
+do
+echo "Press 'q' to exit"
+read -p "Open in split,new session or pop up?  [sp/s/p]  " answer2
+
+    case $answer2 in
+      sp)
+        tmux split-window "nvim -c \":Lexplore scp://$selected/$dir_selected/\""
+        exit 0
+        ;;
+
+      s)
+        tmux new-session -ds lexplore_$selected_name "nvim -c \":Lexplore scp://$selected/$dir_selected/\""
+        tmux switch-client -t lexplore_$selected_name
+        exit 0
+        ;;
+      q)
+        echo "quiting"
+        exit 0
+        ;;
+
+      p)
+        tmux -c "tmux new-session -As lexplore_$selected_name nvim -c \":Lexplore scp://$selected/$dir_selected/\""
+        exit 0
+        ;;
+      *)
+        echo "quiting"
+        exit 0
+        ;;
+  esac
+
+done
+
+
+
